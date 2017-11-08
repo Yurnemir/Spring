@@ -26,14 +26,14 @@ public class FormateurDaoImpl implements IFormateurDao {
 		Session s=sf.getCurrentSession();
 		
 		// la requete HQL
-		String req="FROM Formateur f WHERE f.mail=:pMail AND f.passowrd=:pMdp";
+		String req="FROM Formateur f WHERE f.mail=:pMail AND f.password=:pMdp";
 		
 		// creer un objet query
 		Query query=s.createQuery(req);
 		
 		// passage des params
 		query.setParameter("pMail", f.getMail());
-		query.setParameter("pMdp", f.getPassowrd());
+		query.setParameter("pMdp", f.getPassword());
 		
 		
 		// envoyer la requete et recup du resultat

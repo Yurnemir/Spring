@@ -31,17 +31,17 @@ public class Formateur implements Serializable {
 		super();
 	}
 
-	public Formateur(String mail, String passowrd) {
+	public Formateur(String mail, String password) {
 		super();
 		this.mail = mail;
-		this.password = passowrd;
+		this.password = password;
 	}
 
-	public Formateur(int id, String mail, String passowrd) {
+	public Formateur(int id, String mail, String password) {
 		super();
 		this.id = id;
 		this.mail = mail;
-		this.passowrd = passowrd;
+		this.password = password;
 	}
 
 	public int getId() {
