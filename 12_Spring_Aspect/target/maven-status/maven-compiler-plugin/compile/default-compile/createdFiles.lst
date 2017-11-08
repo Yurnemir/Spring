@@ -1,0 +1,4 @@
+fr\adaming\service\IBanqueService.class
+fr\adaming\test\ClassTest.class
+fr\adaming\aop\BanqueLoggingAspects.class
+fr\adaming\service\BanqueServiceImpl.class

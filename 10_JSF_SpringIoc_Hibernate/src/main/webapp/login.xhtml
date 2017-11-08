@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/jstl/core">
+
+<h:head>
+	<title>PAge login</title>
+</h:head>
+<h:body>
+
+	<h:form>
+ 		Mail: <h:inputText value="#{fMB.formateur.mail}" />
+		<br />
+		Password: <h:inputSecret value="#{fMB.formateur.password}" />
+		<br />
+		<h:commandButton value="Se connecter" action="#{fMB.seConnecter}" />
+
+
+	</h:form>
+	<h:messages style="color: red"/>
+
+</h:body>
+
+</html>

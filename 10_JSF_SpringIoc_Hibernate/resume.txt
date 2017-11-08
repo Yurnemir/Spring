@@ -1,0 +1,29 @@
+===== Config d'une application JSF+spring IoC+Hibernate
+1- remplir le fichier pom.xml:
+		- les dependences de spring: 
+				* les modules du conteneur spring: beans, core, context et Expression language.
+				* le module d'integration d'un orm avec le conteneur spring: ORM et le module de la 
+				      gestion des transactions
+				* le module web de spring : integration de jsf avec spring
+				
+		- les dependence de hibernate 
+		- les dependences de JSF2
+		- le plugin de compilation
+
+2 - remplir le fichier de config du context spring
+		- activation de la detection des annotations d'injection de dependences 
+		- activation de la detection des composants 
+		-  integration de hibernate avec le conteneur spring:
+				* definir un bean data source
+				* definir un bean session factory en lui injectant le bean data source
+				* declaration d'un transaction Manager en lui injectant le bean session factory
+				* activation de la detection des annotations des transactions
+				
+3 - remplir le fichier web.xml
+		- definition de la servlet unique de jsf et son mapping
+		- declaration du listner qui permet de charger le context spring 
+		- specifier le chemin du fichier de config du context spring (c'est le conteneur web qui va s'encharger de la recup du context)
+
+4 - pour integrer jsf avec spring il faut ajouter le el-resolver dans le fichier faces-config afin que le conteneur web ne confond pas el de spring avec el de jsf
+
+

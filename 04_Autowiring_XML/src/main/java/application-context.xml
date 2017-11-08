@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- declaration du bean adresse -->
+	<bean id="adresseBean" class="fr.adaming.beans.Adresse">
+		<property name="adresseComplete" value="77 route de Vertou, Nantes"></property>
+	</bean>
+	
+	<!-- Declaration du bean client -->
+	<bean id="clientBean" class="fr.adaming.beans.Client">
+		<property name="nom" value="Kevin"/>
+		<!-- Injection explicite du bean adresse -->
+		<property name="adresse" ref="adresseBean"/>
+	</bean>
+	
+	<!-- Declaration du client bean1 pour l'autowiring (injection automatique)-->
+	<bean id="clientBean1" class="fr.adaming.beans.Client" autowire="byType"> <!-- byName nécessite que le nom du bean corresponde à  la propriété (ici, "adresse") -->
+		<property name="nom" value="Kevin"/>
+	</bean>
+</beans>
