@@ -25,8 +25,11 @@ public class EtudiantServiceImpl implements IEtudiantService {
 
 	@Override
 	public Etudiant modifEtudiant(Etudiant e, Formateur f) {
-		// TODO Auto-generated method stub
-		return null;
+		if(e.getFormateur().getId()==f.getId()){
+			return etudiantDao.modifEtudiant(e);
+		} else {
+			return null;
+		}
 	}
 
 	@Override

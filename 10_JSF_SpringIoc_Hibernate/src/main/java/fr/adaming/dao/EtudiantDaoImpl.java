@@ -56,8 +56,8 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 		String req = "DELETE FROM Etudiant e WHERE e.id=:pId and e.formateur.id=:pIdFormateur";
 		
 		Query query = s.createQuery(req);
-		query.setParameter(0, e.getId());
-		query.setParameter(1, e.getFormateur().getId());
+		query.setParameter("pId", e.getId());
+		query.setParameter("pIdFormateur", e.getFormateur().getId());
 		
 		int verif = query.executeUpdate();
 		
@@ -88,8 +88,12 @@ public class EtudiantDaoImpl implements IEtudiantDao {
 
 	@Override
 	public Etudiant modifEtudiant(Etudiant e) {
-		// TODO Auto-generated method stub
-		return null;
+		Session s = sf.getCurrentSession();
+		
+		s.save(e);
+		
+		return e;
+		
 	}
 
 }
