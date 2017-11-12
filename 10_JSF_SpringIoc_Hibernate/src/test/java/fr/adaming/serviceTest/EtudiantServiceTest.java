@@ -50,7 +50,7 @@ public class EtudiantServiceTest {
 	@Test
 	public void testGetEtudiantById(){
 		Etudiant knownEtudiant = new Etudiant();
-		knownEtudiant.setId(1);
+		knownEtudiant.setId(3);
 		knownEtudiant.setFormateur(f);
 		assertEquals("Alix", etudiantService.getEtudiantById(knownEtudiant, f).getNom());
 	}
