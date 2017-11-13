@@ -5,12 +5,30 @@
 	version="3.1">
 	<display-name>17_TP_SpringMVC_SpringIoC_Hibernate</display-name>
 
+<!-- Chargement du contexte spring IoC - Listener -->
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+
+<!-- Chemin du fichier de config du contexte spring IoC -->
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>/WEB-INF/application-context.xml</param-value>
+</context-param>
+
+<!-- Declaration de la servlet springMVC -->
 <servlet>
-	<servlet-name>mvc</servlet-name>
+	<servlet-name>uniqueServlet</servlet-name>
 	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<!-- Localiser le fichier de config du contexte spring MVC, sinon il cherche uniqueServlet-servlet.xml-->
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/mvc-context.xml</param-value>
+	</init-param>
 </servlet>
+
 <servlet-mapping>
-	<servlet-name>mvc</servlet-name>
+	<servlet-name>uniqueServlet</servlet-name>
 	<url-pattern>/</url-pattern>
 </servlet-mapping>
 
