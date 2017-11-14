@@ -5,6 +5,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -18,26 +21,42 @@ import org.springframework.web.servlet.mvc.method.annotation.RedirectAttributesM
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 
+import fr.adaming.dao.IFormateurDAO;
 import fr.adaming.model.Etudiant;
 import fr.adaming.model.Formateur;
 import fr.adaming.service.IEtudiantService;
+import fr.adaming.service.IFormateurService;
 
 @Controller
+@Scope("session")
 @RequestMapping("/etudiant")
 public class TestControleur {
 	
 	//Injection de la dépendance service
 	@Autowired
 	private IEtudiantService etuService;
+	@Autowired
+	private IFormateurService formateurService;
 	
 	public void setEtuService(IEtudiantService etuService) {
 		this.etuService = etuService;
 	}
 
+	public void setFormateurService(IFormateurService formateurService) {
+		this.formateurService = formateurService;
+	}
+
 	private Formateur f;//remplacé par la suite (Spring security)
+	
 	@PostConstruct
-	public void inti(){
-		this.f = new Formateur(1,"form@eur","formateur");
+	public void init(){
+		//Recuperation du contexte spring security, puis de l'objet authentication qui contient les infos de connexion
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		//recuperer le mail du formateur connecté
+		String mail = auth.getName();
+		this.f = formateurService.getFormateurByMail(mail);
 	}
 			
 			

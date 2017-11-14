@@ -28,6 +28,7 @@
   			<li role="presentation"><a href="${pageContext.request.contextPath}/etudiant/afficheModif">Modifier</a></li>
   			<li role="presentation"><a href="${pageContext.request.contextPath}/etudiant/afficheSuppr">Supprimer</a></li>
   			<li role="presentation"><a href="#">Rechercher</a></li>
+  			<li role="presentation"><a href="${pageContext.request.contextPath}/j_spring_security_logout">Déconnection</a></li>
   			
 		</ul>
 	

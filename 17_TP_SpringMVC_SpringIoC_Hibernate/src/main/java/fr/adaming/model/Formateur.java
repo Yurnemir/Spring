@@ -26,9 +26,13 @@ public class Formateur implements Serializable {
 	private int id;
 	private String mail;
 	private String mdp;
+	private boolean active;
 	
 	@OneToMany(mappedBy="formateur")
 	private List<Etudiant> listeEtudiants;
+	
+	@OneToMany(mappedBy="formateur")
+	private List<Role> roles;
 	
 	public Formateur() {
 		super();
@@ -67,6 +71,18 @@ public class Formateur implements Serializable {
 	}
 	public void setListeEtudiants(List<Etudiant> listeEtudiants) {
 		this.listeEtudiants = listeEtudiants;
+	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 	@Override
 	public String toString() {
