@@ -39,7 +39,7 @@ public class MonController {
 	// (URI globale sera celle ci plus celle de la classe)
 	// On peut rajouter plusieurs URI à la suite
 	public String disBonjourSalle(Map<String, String> model) {
-
+		//klhgpsfgjdhsfogkjshdl
 		model.put("message", "Bonjour la Salle!");
 
 		return "bonjour";
